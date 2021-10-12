@@ -13,3 +13,6 @@ npx hardhat node
 node scripts/sample-script.js
 npx hardhat help
 ```
+
+# Contrato desplegado en la BSC Testnet
+https://testnet.bscscan.com/address/0xC571E7F896EC269cAd9b8663690640DDDe1ac6Ca#code
