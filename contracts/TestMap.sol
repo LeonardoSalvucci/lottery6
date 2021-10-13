@@ -25,18 +25,19 @@ contract TestMap is VRFConsumerBase, Ownable{
     event NewLotery(uint8[6] lastResult, bool vacancy, address[] winners);
     
     // Random
-    address constant LinkAddress = 0x84b9B910527Ad5C03A9Ca831909E21e236EA7b06;
+    address internal LinkAddress;
     bytes32 internal keyHash;
     uint256 internal fee;
     
-    constructor() 
+    constructor(address _linkAddress, address _vrfCoordinator) 
         VRFConsumerBase(
-            0xa555fC018435bef5A13C6c6870a9d4C11DEC329C, // VRF Coordinator BSC TESTNET
-            LinkAddress  // LINK Token
-        )
+            _vrfCoordinator, // 0xa555fC018435bef5A13C6c6870a9d4C11DEC329C, // VRF Coordinator BSC TESTNET
+            _linkAddress  // LINK Token
+        ) 
     {
         keyHash = 0xcaf3c3727e033261d383b315559476f48034c13b18f8cafed4d871abe5049186;
         fee = 0.1 * 10 ** 18; // 0.1 LINK (Varies by network)
+        LinkAddress = _linkAddress;
     }
     
     /** 
